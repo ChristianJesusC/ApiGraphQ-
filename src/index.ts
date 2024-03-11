@@ -3,12 +3,17 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import express, { Express, Request, Response } from "express";
 import connectDB from "./database/mongoConection";
-import { typeDefs } from "./stands/graphql/typesDefs";
-import {resolvers} from "./stands/graphql/resolvers"
 import { Stand } from "./stands/models/stands";
+import { resolvers as standsResolvers } from "./stands/graphql/resolvers";
+import { typeDefs as standsTypeDefs } from "./stands/graphql/typesDefs";
+import { typeDefs as usersTypeDefs } from "./users/graphql/typesDefsUser";
+import { resolvers as userResolvers } from "./users/graphql/resolversUSER";
 
 const app: Express = express();
 app.use(express.json());
+
+const typeDefs = [standsTypeDefs, usersTypeDefs];
+const resolvers = [standsResolvers, userResolvers];
 
 const server = new ApolloServer({
   typeDefs,
