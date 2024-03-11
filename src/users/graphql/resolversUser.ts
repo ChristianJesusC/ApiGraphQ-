@@ -36,7 +36,7 @@ export const resolvers = {
         throw new Error('Invalid password');
       }
 
-      const token = jwt.sign({ id: user.id },secretKey, { expiresIn: '10m' });
+      const token = jwt.sign({ id: user.id },secretKey, { expiresIn: '1m' });
       return { token, user };
     }
   },
