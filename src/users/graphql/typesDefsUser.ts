@@ -4,6 +4,11 @@ type User{
     name:String
     email:String
 }
+type Query {
+    allUsers: [User]
+    userByName(name: String!): User
+  }
+
 type AuthPayload {
     token: String
     user: User

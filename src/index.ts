@@ -7,7 +7,7 @@ import { Stand } from "./stands/models/stands";
 import { resolvers as standsResolvers } from "./stands/graphql/resolvers";
 import { typeDefs as standsTypeDefs } from "./stands/graphql/typesDefs";
 import { typeDefs as usersTypeDefs } from "./users/graphql/typesDefsUser";
-import { resolvers as userResolvers } from "./users/graphql/resolversUSER";
+import { resolvers as userResolvers } from "./users/graphql/resolversUser";
 
 const app: Express = express();
 app.use(express.json());

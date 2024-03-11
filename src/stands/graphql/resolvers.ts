@@ -3,6 +3,13 @@ import { Stand } from "../models/stands";
 
 export const resolvers = {
     Query: {
+      standsByType: async (__: void, args: any) => {
+        const stands = await Stand.find({ tipo: args.tipo });
+        axios.post(process.env.WEBHOOK_URL!, {
+          content: `Se realizó una consulta para obtener los stands de tipo ${args.tipo}.`,
+        });
+        return stands;
+      },
       stands: async () => {
         const stands = await Stand.find({});
         axios.post(process.env.WEBHOOK_URL!, {
@@ -17,6 +24,7 @@ export const resolvers = {
         });
         return stand;
       },
+      
     },
     Mutation: {
       createStand: async (__: void, args: any) => {

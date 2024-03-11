@@ -10,6 +10,7 @@ type Stand{
     type Query{
         stands: [Stand]
         stand(id: ID):Stand
+        standsByType(tipo: String): [Stand]
     }    
 
     input StandInput{
